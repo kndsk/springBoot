@@ -1,0 +1,167 @@
+/*
+ * 公用的css，即base和reset
+ * @author liyang3
+ */
+
+* {
+    margin: 0;
+}
+.transition{
+	transition:all .3s;
+}
+button {
+   cursor:pointer;
+   transition:all .3s;
+ }
+body {
+  /*overflow-x:hidden;*/
+  background-color: #fff;
+}
+body,div {
+	margin: 0;
+	padding: 0;
+}
+html,body {
+	margin: 0;
+	padding: 0;
+	height:100%;
+  	font: normal 12px "Microsoft YaHei";
+}
+
+/* 常用元素 */
+body, div, p,
+dl, dt, dd, ul, ol,li,
+h1, h2, h3, h4, h5, h6, 
+form {
+	margin: 0;
+	padding: 0;
+}
+img, abbr, acronym {
+	border: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+ol, ul {
+	list-style: none;
+}
+a {
+	outline:0;
+	_blr:expression(this.onFocus=this.blur());
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+input {
+	outline: none;
+}
+textarea{
+    outline: none;
+  resize:none;
+}
+li {
+    list-style: none;
+}
+
+p {
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.hide,
+.hidden {
+	display: none;
+}
+.show {
+    display: block;
+}
+/* 浮动 */
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+
+/* 清除浮动 */
+.clear  {
+	clear: both;
+	overflow: hidden;
+	height: 0;
+}
+.clearfix {
+	display: block;
+	zoom: 1;
+}
+.clearfix:after {
+	content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* IE6 fixed 解决闪动 */
+*html {
+  background-image: url(about:blank);
+  background-attachment: fixed;
+}
+
+/* 文字溢出省略 */
+.ell,
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 文字对齐方式 */
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+/* table */
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table tr,
+table th,
+table td{
+  border-collapse: collapse;
+}
+
+::-webkit-scrollbar
+{
+    width: 8px;
+    height: 8px;
+    background-color: #F5F5F5;
+}
+ 
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    background-color: #F5F5F5;
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.3);
+    background-color: #ccc;
+}
+div[contenteditable="true"]{
+	text-indent:5px;
+}
+.fill-box {
+    line-height: 37px;
+}

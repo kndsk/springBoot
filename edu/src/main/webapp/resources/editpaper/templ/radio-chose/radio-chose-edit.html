@@ -1,0 +1,97 @@
+<div class="radio-box darg-box">
+    <div class="main-wrapper radio-wrapper">
+    	<input type="hidden" class="hd-paperitem-id"/>
+        <!-- 题目 -->
+        <div class="multiple-choice-theme">
+            <label class="fl">题目</label>
+            <div class="content-edit theme" contenteditable="true" type="radio"></div>
+        </div>
+
+        <!-- 选项 -->
+        <div class="multiple-choice-option">
+            <ul class="option-operating">
+                <ul class="option-box">
+                    <li class="item-option">
+                        <div class="content-edit" contenteditable="true" type="radio"></div>
+                        <span class="option-handle"></span>
+                        <a href="javascript:void(null)">&#10005;</a>
+                    </li>
+
+                    <li class="item-option">
+                        <div class="content-edit" contenteditable="true" type="radio"></div>
+                        <span class="option-handle"></span>
+                        <a href="javascript:void(null)">&#10005;</a>
+                    </li>
+                </ul>
+                <li class="add-option" type="addRadio">
+                    <p>新建选项</p>
+                </li>
+                <div class="fill" style="width: 100%;display: none">
+                    <!-- 题目 -->
+                    <div class="multiple-choice-theme other-option item-option fill-theme">
+                        
+                    </div>
+
+                    <!-- 设置 -->
+                    <div class="fill-control" style="width: 100%;">
+                        <a id="addInput" href="javascript:void(null)">添加填空</a>
+                        <div class="constraint-box">
+                            <label class="constraint-font">约束：</label>
+                            <select id="blankNumber"><option value="-1">请选择</option></select>
+                            <label>输入限制：</label>
+                            <select id="limitType">
+                                <option value="-1">请选择</option>
+                                <option value="1">字数</option>
+                                <option value="2">数字</option>
+                                <option value="3">小数</option>
+                                <option value="4">整数</option>
+                            </select>
+                            <div id="word" class="limit-box hidden">
+                                 <!--<label class="item-font">最小字数：</label>
+                                <input class="min-value" type="number"  name="" value="">-->
+                                <label class="item-font">最大字数：</label>
+                                <input class="max-value" type="number" name="" value="">
+                            </div>
+                            <div id="decimal" class="limit-box hidden" style="display: none;">
+                                <label class="item-font">最小值：</label>
+                                <input class="min-value" type="number" name="" value="">
+
+                                <label class="item-font">最大值：</label>
+                                <input class="max-value" type="number" name="" value="">
+
+                                <label class="item-font">小数位数：</label>
+                                <input class="decimal-num" type="number" name="" value="">
+                            </div>
+                            <div id="integer" class="limit-box hidden" style="display: none;">
+                                <label class="item-font">最小值：</label>
+                                <input class="min-value" type="number" name="" value="">
+
+                                <label class="item-font">最大值：</label>
+                                <input class="max-value" type="number" name="" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+
+            <div class="option-control">
+                <a class="add-other" href="javascript:void(null)">添加其它项</a>
+                <label>每行显示列数：</label>
+                <select id="columnNum">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <div class="check-box fr">
+                    <i class="checkbox-normal" style="background-size: 14px;vertical-align: middle"></i>
+                    <span>是否为辅助题</span>
+                </div>
+            </div>
+            <div class="button-box">
+                <button class="cancle">取消</button>
+                <button class="ok">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

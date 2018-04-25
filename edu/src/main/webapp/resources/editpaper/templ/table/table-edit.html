@@ -1,0 +1,105 @@
+<div class="table-box darg-box">
+    <div class="main-wrapper table-wrapper">
+    <input type="hidden" class="hd-paperitem-id" />
+        <!-- 题目 -->
+        <div class="multiple-choice-theme">
+            <label class="fl">题目</label>
+            <!--<div class="content-edit theme fill-theme" contenteditable="true" type="table"></div>-->
+            <div class="content-edit theme fill-theme" contenteditable="true" type="fill"></div>
+        </div>
+        <!--<div class="oth_op">-->
+            <!--添加其他项-->
+        <!--</div>-->
+        <!-- 设置 -->
+        <div class="fill-control">
+            <!--<a id="addInput" href="javascript:void(null)">添加填空</a>-->
+            <span id="addInput">添加填空</span>
+            <div class="constraint-box">
+                <label class="constraint-font">约束：</label>
+                <select id="blankNumber"><option value="-1">请选择</option></select>
+                <label>输入限制：</label>
+                <select id="limitType">
+                    <option value="-1">请选择</option>
+                    <option value="1">字数</option>
+                    <option value="2">数字</option>
+                    <option value="3">小数</option>
+                    <option value="4">整数</option>
+                </select>
+                <div id="word" class="limit-box hidden">
+                    <!-- <label class="item-font">最小字数：</label>
+                    <input class="min-value" type="number"  name="" value=""> -->
+
+                    <label class="item-font">最大字数：</label>
+                    <input class="max-value" type="number" name="" value="">
+                </div>
+                <div id="decimal" class="limit-box hidden" style="display: none;">
+                    <label class="item-font">最小值：</label>
+                    <input class="min-value" type="number" name="" value="">
+
+                    <label class="item-font">最大值：</label>
+                    <input class="max-value" type="number" name="" value="">
+
+                    <label class="item-font">小数位数：</label>
+                    <input class="decimal-num" type="number" name="" value="">
+                </div>
+                <div id="integer" class="limit-box hidden" style="display: none;">
+                    <label class="item-font">最小值：</label>
+                    <input class="min-value" type="number" name="" value="">
+
+                    <label class="item-font">最大值：</label>
+                    <input class="max-value" type="number" name="" value="">
+                </div>
+            </div>
+        </div>
+        <div class="multiple-choice-option" style="position:relative;margin-bottom: 10px">
+            <!-- 问题组 -->
+            <label class="fl">问题组：</label>
+            <select class="fl switch">
+                <option value="general">普通表格</option>
+                <option value="combin">组合表格</option>
+            </select>
+            <div class="check-box fr table-sub-checkbox" style="margin-right: 35px">
+                <i class="checkbox-normal" style="background-size: 14px;vertical-align: middle"></i>
+                <span>是否为小题</span>
+            </div>
+            <a class="fl add-group" href="javascript:void(null)">添加组标题</a>
+            <div class="fl quenstion-group">
+                <div class="general-box">
+                    <div class="content-edit" contenteditable="true" type="table"></div>
+                </div>
+            </div>
+            <!-- 选项组 -->
+            <label class="fl">选项组：</label>
+            <div class="fl option-group">
+                <ul class="quenstion-ul">
+                    <ul>
+                        <li class="quenstion-li option-li">
+                            <div class="content-edit" contenteditable="true" type="table"></div>
+                            <span class="option-handle"></span>
+                            <a class="btn-remove" href="javascript:void(null)">&#10005;</a>
+                        </li>
+                        <li class="quenstion-li option-li">
+                            <div class="content-edit" contenteditable="true" type="table"></div>
+                            <span class="option-handle"></span>
+                            <a class="btn-remove" href="javascript:void(null)">&#10005;</a>
+                        </li>
+                    </ul>
+                    <a class="add-quenstion" href="javascript:void(null)">添加选项</a>
+                    <div class="ta_ble_div">
+                        <label>最多选择：</label>
+                        <input class="option-number" type="text" value="1">
+                        <label class="item-font">项</label>
+                    </div>
+
+                </ul>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="button-box">
+            <button class="cancle">取消</button>
+            <button class="ok">确定</button>
+        </div>
+    </div>
+</div>

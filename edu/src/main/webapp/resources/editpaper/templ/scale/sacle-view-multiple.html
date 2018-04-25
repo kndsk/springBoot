@@ -1,0 +1,39 @@
+<div class="view-wrapper sacle-view" index="{{data.index}}">
+    <div>
+        <div class="title-view">
+            <input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+            <div class="title-content">
+                <p>{{#data.questionTitle}}</p>
+            </div>
+        </div>
+        <table class="table-style">
+            <thead>
+            <tr class="table-header">
+                <th></th>
+                {{each data.optionArray as value index}}
+                <th>{{#value.value}}</th>
+                {{/each}}
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{each data.subTitles[0].titles as val as index}}
+            <tr>
+                <td>{{#val.leftTitle}}</td>
+                {{each data.optionArray as obj}}
+                <td><i class="checkbox-normal" value="{{#obj.name}}"></i></td>
+                {{/each}}
+                <td>{{#val.rightTitle}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="conctrol-box">
+        <div class="conctrol">
+            <span class="view-edit" data-id="{{#data.id}}"></span>
+            <!-- <span class="view-logic" data-id="{{#data.id}}"></span> -->
+            <span class="view-delete" data-id="{{#data.id}}"></span>
+        </div>
+    </div>
+</div>

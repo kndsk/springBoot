@@ -1,0 +1,539 @@
+{{each viewData as value index}}
+    {{if value.type === 1 || value.type === 4}}
+    <div class="radio-box">
+        <div class="preview-wrapper radio-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        {{#value.questionTitle}}
+                    </div>
+                </div>
+                <div class="view-option-box">
+                    {{each value.options as item}}
+                    <div class="item-view-option" style="width:{{100/value.showColumnNum}}%">
+                        <i class="radio-normal" value="{{#item.name}}"></i>
+                        <div class="option-content" name="{{#item.name}}" target="">
+                            {{#item.value}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 2 || value.type === 5}}
+    <div class="multiple-box">
+        <div class="preview-wrapper multiple-view {{#value.id}}" maxChoiceNum="{{#value.maxChoiceNum}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        {{#value.questionTitle}}
+                    </div>
+                    <span class="theme-type">[多选题]</span>
+                </div>
+                <div class="view-option-box" maxchoice="{{value.maxChoiceNum}}">
+                    {{each value.options as item}}
+                    <div class="item-view-option" style="width:{{100/value.showColumnNum}}%">
+                        <i class="checkbox-normal" value="{{#item.name}}"></i>
+                        <div class="option-content">
+                            {{#item.value}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 3}}
+    <div class="fill-box">
+        <div class="preview-wrapper fill-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}"">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        <p>{{#value.questionTitle}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 6}}
+    <div class="table-box">
+        <div class="preview-wrapper table-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        <p>{{#value.questionTitle}}</p>
+                    </div>
+                </div>
+            </div>
+            {{if value.complex === false}}
+            <table class="table-style">
+                <thead>
+                    <tr class="table-header">
+                        <th style="width: 40%"></th>
+                        {{each value.optionArray as value index}}
+                            <th>{{#value.value}}</th>
+                        {{/each}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each value.subTitles[0].titles as val as index}}
+                    <tr class="table-body">
+                        <td style="text-align: left">{{#val.leftTitle}}</td>
+                        <!--判断是否多选-->
+                        {{if value.maxChoiceNum >1}}
+                        {{each value.optionArray as obj}}
+                        <td class="radio-view-option"><i class="checkbox-normal" value="{{#obj.name}}">
+                        {{/each}}
+                        {{else}}
+                        {{each value.optionArray as obj}}
+                        <td class="radio-view-option"><i class="radio-normal" value="{{#obj.name}}">
+                        {{/each}}
+                        {{/if}}
+                        <!--{{each value.optionArray as obj}}-->
+                            <!--<td class="radio-view-option"><i class="radio-normal" value="{{#obj.name}}"></td>-->
+                        <!--{{/each}}-->
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <table class="table-style">
+                    <thead>
+                        <tr class="table-header">
+                            <th style="width: 30%"></th>
+                            <th></th>
+                            {{each value.optionArray as value index}}
+                                <th>{{#value.value}}</th>
+                            {{/each}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{each value.subTitles as val arry}}
+                            <tr class="table-body">
+                                <td rowspan="{{val.titles.length}}" style="text-align: left">{{#val.groupTitle}}</td>
+                                <td class="combine-td" style="text-align: left">{{#val.titles[0].leftTitle}}</td>
+                                <!--判断是否多选-->
+                                {{if value.maxChoiceNum >1}}
+                                {{each value.optionArray as obj}}
+                                <td class="radio-view-option combine-td"><i class="checkbox-normal" value="{{#obj.name}}"></i></td>
+                                    {{/each}}
+                                    {{else}}
+                                    {{each value.optionArray as obj}}
+                                <td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></i></td>
+                                    {{/each}}
+                                    {{/if}}
+                                <!--{{each value.optionArray as obj}}-->
+                                    <!--<td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></i></td>-->
+                                <!--{{/each}}-->
+                            </tr>
+                            {{each val.titles as item index}}
+                                {{if index != 0}}
+                                <tr class="table-body">
+                                    <td class="combine-td" style="text-align: left">{{#item.leftTitle}}</td>
+                                    <!--判断是否多选-->
+                                    {{if value.maxChoiceNum >1}}
+                                    {{each value.optionArray as obj}}
+                                    <td class="radio-view-option combine-td"><i class="checkbox-normal" value="{{#obj.name}}"></td>
+                                    {{/each}}
+                                    {{else}}
+                                    {{each value.optionArray as obj}}
+                                    <td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></td>
+                                    {{/each}}
+                                    {{/if}}
+                                    <!--{{each value.optionArray as obj}}-->
+                                        <!--<td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></td>-->
+                                    <!--{{/each}}-->
+                                </tr>
+                                {{/if}}
+                            {{/each}}
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 7}}
+    <div class="sort-box">
+        <div class="preview-wrapper sort-view {{#value.id}}" maxInputNum="{{#value.maxInputNum}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        <p>{{#value.questionTitle}}</p>
+                    </div>
+                    <div class="title-remark">
+                        <require>*</require>
+                        <span>拖动右侧的选项</span>
+                    </div>
+                </div>
+            </div>
+            <div class="answer-box">
+                <div class="sort-input"></div>
+                <div class="sort-options">
+                    {{each value.sortOptions as value index}}
+                    <li class="list" value="{{#value.name}}">
+                        {{#value.value.questionTitle}}
+                        <span class="option-handle"></span>
+                    </li>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 9}}
+    <div class="short-answer-box">
+        <div class="preview-wrapper short-answer-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        <p>{{#value.questionTitle}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 10}}
+    <div class="sacle-box">
+        <div class="preview-wrapper sacle-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+            <div>
+                <div class="title-view">
+                <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                    <div class="title-content">
+                        <p>{{#value.questionTitle}}</p>
+                    </div>
+                </div>
+                <table class="table-style">
+                    <thead>
+                        <tr class="table-header">
+                            <th style="width: 20%"></th>
+                            {{each value.optionArray as value index}}
+                                <th>{{#value.value}}</th>
+                            {{/each}}
+                            <th style="width: 20%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{each value.subTitles[0].titles as val as index}}
+                    <tr class="table-body">
+                        <td>{{#val.leftTitle}}</td>
+                        {{ if value.choiceFlag == 2}}
+                            {{each value.optionArray as obj}}
+                                <td class="radio-view-option"><i class="checkbox-normal" value="{{#obj.name}}"></i></td>
+                            {{/each}}
+                        {{ else }}
+                            {{each value.optionArray as obj}}
+                                <td class="radio-view-option"><i class="radio-normal" value="{{#obj.name}}"></i></td>
+                            {{/each}}
+                        {{  /if }}
+                        <td>{{#val.rightTitle}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    {{/if}}
+    {{if value.type === 11}}
+    {{if value.combine === false}}
+        <div class="paragraph-box">
+            <div class="preview-wrapper paragraph-statement-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                <div>
+                    <div class="title-view">
+                        <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                        <div class="title-content">
+                            <p>{{#value.questionTitle}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div class="combin-box-wrapper">
+            <input type="hidden" class="hd-parentid"/>
+            <input type="hidden" class="hd-paperitem-id"/>
+            <div class="paragraph-box">
+            <div class="preview-wrapper paragraph-statement-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                <div>
+                    <div class="title-view">
+                        <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                        <div class="title-content">
+                            <p>{{#value.questionTitle}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {{each value.subPaperItemDTOs as value}}
+                {{if value.type === 1 || value.type === 4}}
+                <div class="radio-box">
+                    <div class="preview-wrapper radio-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-view">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    {{#value.questionTitle}}
+                                </div>
+                            </div>
+                            <div class="view-option-box">
+                                {{each value.options as item}}
+                                <div class="item-view-option" style="width:{{100/value.showColumnNum}}%">
+                                    <i class="radio-normal" value="{{#item.name}}"></i>
+                                    <div class="option-content" name="{{#item.name}}" target="">
+                                        {{#item.value}}
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 2 || value.type === 5}}
+                <div class="multiple-box">
+                    <div class="preview-wrapper multiple-view {{#value.id}}" maxChoiceNum="{{#value.maxChoiceNum}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-view">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    {{#value.questionTitle}}
+                                </div>
+                                <span class="theme-type">[多选题]</span>
+                            </div>
+                            <div class="view-option-box" maxchoice="{{value.maxChoiceNum}}">
+                                {{each value.options as item}}
+                                <div class="item-view-option" style="width:{{100/value.showColumnNum}}%">
+                                    <i class="checkbox-normal" value="{{#item.name}}"></i>
+                                    <div class="option-content">
+                                        {{#item.value}}
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 3}}
+                <div class="fill-box">
+                    <div class="preview-wrapper fill-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-view">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    <p>{{#value.questionTitle}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 6}}
+                <div class="table-box">
+                    <div class="preview-wrapper table-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-viewe">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    <p>{{#value.questionTitle}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{if value.complex === false}}
+                        <table class="table-style">
+                            <thead>
+                                <tr class="table-header">
+                                    <th style="width: 40%"></th>
+                                    {{each value.optionArray as value index}}
+                                        <th>{{#value.value}}</th>
+                                    {{/each}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{each value.subTitles[0].titles as val as index}}
+                                <tr class="table-body">
+                                    <td style="text-align: left">{{#val.leftTitle}}</td>
+                                    <!--判断是否多选-->
+                                    {{if value.maxChoiceNum >1}}
+                                    {{each value.optionArray as obj}}
+                                    <td class="radio-view-option"><i class="checkbox-normal" value="{{#obj.name}}"></td>
+                                    {{/each}}
+                                    {{else}}
+                                    {{each value.optionArray as obj}}
+                                    <td class="radio-view-option"><i class="radio-normal" value="{{#obj.name}}"></td>
+                                    {{/each}}
+                                    {{/if}}
+                                    <!--{{each value.optionArray as obj}}-->
+                                        <!--<td class="radio-view-option"><i class="radio-normal" value="{{#obj.name}}"></td>-->
+                                    <!--{{/each}}-->
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        {{else}}
+                            <table class="table-style">
+                                <thead>
+                                    <tr class="table-header">
+                                        <th style="width: 30%"></th>
+                                        <th></th>
+                                        {{each value.optionArray as value index}}
+                                            <th>{{#value.value}}</th>
+                                        {{/each}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{each value.subTitles as val arry}}
+                                        <tr class="table-body">
+                                            <td style="text-align: left" rowspan="{{val.titles.length}}">{{#val.groupTitle}}</td>
+                                            <td style="text-align: left" class="combine-td">{{#val.titles[0].leftTitle}}</td>
+                                            <!--判断是否多选-->
+                                            {{if value.maxChoiceNum >1}}
+                                            {{each value.optionArray as obj}}
+                                            <td class="radio-view-option combine-td"><i class="checkbox-normal" value="{{#obj.name}}"></i></td>
+                                                {{/each}}
+                                                {{else}}
+                                                {{each value.optionArray as obj}}
+                                            <td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></i></td>
+                                                {{/each}}
+                                                {{/if}}
+                                            <!--{{each value.optionArray as obj}}-->
+                                                <!--<td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></i></td>-->
+                                            <!--{{/each}}-->
+                                        </tr>
+                                        {{each val.titles as item index}}
+                                            {{if index != 0}}
+                                            <tr class="table-body">
+                                                <td style="text-align: left" class="combine-td">{{#item.leftTitle}}</td>
+                                                <!--判断是否多选-->
+                                                {{if value.maxChoiceNum >1}}
+                                                {{each value.optionArray as obj}}
+                                                <td class="radio-view-option combine-td"><i class="checkbox-normal" value="{{#obj.name}}">
+                                                {{/each}}
+                                                {{else}}
+                                                {{each value.optionArray as obj}}
+                                                <td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}">
+                                                {{/each}}
+                                                {{/if}}
+                                                <!--{{each value.optionArray as obj}}-->
+                                                    <!--<td class="radio-view-option combine-td"><i class="radio-normal" value="{{#obj.name}}"></td>-->
+                                                <!--{{/each}}-->
+                                            </tr>
+                                            {{/if}}
+                                        {{/each}}
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        {{/if}}
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 7}}
+                <div class="sort-box">
+                    <div class="preview-wrapper sort-view {{#value.id}}" maxInputNum="{{#value.maxInputNum}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-view">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    <p>{{#value.questionTitle}}</p>
+                                </div>
+                                <div class="title-remark">
+                                    <require>*</require>
+                                    <span>拖动右侧的选项</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer-box">
+                            <div class="sort-input"></div>
+                            <div class="sort-options">
+                                {{each value.sortOptions as value index}}
+                                <li class="list" value="{{#value.name}}">
+                                    {{#value.value.questionTitle}}
+                                    <span class="option-handle"></span>
+                                </li>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 9}}
+                <div class="short-answer-box">
+                    <div class="preview-wrapper short-answer-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-view">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    <p>{{#value.questionTitle}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 10}}
+                <div class="sacle-box">
+                    <div class="preview-wrapper sacle-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+                        <div>
+                            <div class="title-view">
+                            <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+                                <div class="title-content">
+                                    <p>{{#value.questionTitle}}</p>
+                                </div>
+                            </div>
+                            <table class="table-style">
+                                <thead>
+                                    <tr class="table-header">
+                                        <th style="width: 20%"></th>
+                                        {{each value.optionArray as value index}}
+                                            <th>{{#value.value}}</th>
+                                        {{/each}}
+                                        <th style="width: 20%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {{each value.subTitles[0].titles as val as index}}
+                                <tr class="table-body">
+                                    <td>{{#val.leftTitle}}</td>
+                                    {{each value.optionArray as obj}}
+                                        <td class="radio-view-option"><i class="radio-normal" value="{{#obj.name}}"></i></td>
+                                    {{/each}}
+                                    <td>{{#val.rightTitle}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                {{/if}}
+                {{if value.type === 11}}
+			        <div class="paragraph-box">
+			            <div class="preview-wrapper paragraph-statement-view {{#value.id}}" itemId="{{#value.id}}" index="{{#value.index}}" type="{{#value.type}}">
+			                <div>
+			                    <div class="title-view">
+			                        <input type="hidden" class="hd-paperitem-id" value="{{#value.id}}" />
+			                        <div class="title-content">
+			                            <p>{{#value.questionTitle}}</p>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			      {{/if}}
+            {{/each}}
+        </div>
+        {{/if}}
+    {{/if}}
+{{/each}}

@@ -1,0 +1,73 @@
+<div class="main-wrapper fill">
+<input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+<!-- 题目 -->
+<div class="multiple-choice-theme">
+    <label class="fl">题目</label>
+    <div class="content-edit theme fill-theme" contenteditable="true" type="fill">{{#data.questionTitle}}</div>
+</div>
+
+<!-- 设置 -->
+<div class="fill-control">
+    <div class="clearfix controller-box">
+        <a id="addInput" href="javascript:void(null)">添加填空</a>
+        <div class="open-range-wrap">
+            <label for="openRange">开启滑块</label>
+            <i  class="checkbox-normal" id="openRange"></i>
+        </div>
+    </div>
+    <div class="constraint-box normal-input-box">
+        <label>约束</label>
+        <select id="blankNumber"><option value="-1">请选择</option></select>
+        <label>输入限制：</label>
+        <select id="limitType">
+            <option value="-1">请选择</option>
+            <option value="1">字数</option>
+            <option value="2">数字</option>
+            <option value="3">小数</option>
+            <option value="4">整数</option>
+        </select>
+        <div id="word" class="limit-box hidden">
+            <!-- <label class="item-font">最小字数：</label>
+            <input class="min-value" type="number"  name="" value=""> -->
+
+            <label class="item-font">最大字数：</label>
+            <input class="max-value" type="number" name="" value="">
+        </div>
+        <div id="decimal" class="limit-box hidden" style="display: none;">
+            <label class="item-font">最小值：</label>
+            <input class="min-value" type="number"  name="" value="">
+
+            <label class="item-font">最大值：</label>
+            <input class="max-value" type="number" name="" value="">
+
+            <label class="item-font">小数位数：</label>
+            <input class="decimal-num" type="number" name="" value="">
+        </div>
+        <div id="integer" class="limit-box hidden" style="display: none;">
+            <label class="item-font">最小值：</label>
+            <input class="min-value" type="number" name="" value="">
+
+            <label class="item-font">最大值：</label>
+            <input class="max-value" type="number" name="" value="">
+        </div>
+    </div>
+    <div class="constraint-box range-switch-box" style="display: none" >
+        <label class="constraint-font">约束：</label>
+        <div id="range" class="limit-box">
+            <label class="item-font">最小值：</label>
+            <input class="min-value" type="number" name="" value="0">
+
+            <label class="item-font">最大值：</label>
+            <input class="max-value" type="number" name="" value="100">
+
+            <label class="item-font">幅度：</label>
+            <input class="step-value" type="number" name="" value="1">
+        </div>
+    </div>
+</div>
+
+<div class="button-box">
+    <button class="cancle">取消</button>
+    <button class="ok">确定</button>
+</div>
+</div>

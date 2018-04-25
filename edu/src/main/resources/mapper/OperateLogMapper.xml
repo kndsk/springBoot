@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ly.edu.mapper.OperateLogMapper" >
+  <resultMap id="BaseResultMap" type="com.ly.edu.domain.OperateLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="result" property="result" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <resultMap id="BaseResultMapDTO" type="com.ly.edu.dto.OperateLogDTO" >
+    <result column="time" property="opTime" jdbcType="VARCHAR" />
+    <result column="login_name" property="opUser" jdbcType="VARCHAR" />
+    <result column="name" property="module" jdbcType="VARCHAR" />
+    <result column="description" property="behavior" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, name, type, result, operator, time,discription
+  </sql>
+  <sql id="ProjectWhereInclude">
+      1=1 
+	  <if test="id != null" >
+        AND id=#{id}
+      </if>
+      <if test="name != null and name != ''" >
+        AND a.name=#{name}
+      </if>
+      <if test="discription != null" >
+        AND discription=#{discription}
+      </if>
+      <if test="type !=null" >
+        AND type=#{type}
+      </if>
+      <if test="beginTime != null " >
+        AND time &gt;=#{beginTime}
+      </if>
+      <if test="endTime != null " >
+        AND time &lt;=#{endTime}
+      </if>
+      <if test="start!=null and number!=null">
+        AND a.operator=b.id 
+      order by time desc 
+      limit #{start}, #{number}
+      </if>
+  </sql>
+  <insert id="insertOprLog"  parameterType="map">  
+    insert into t_operate_log (description,name, type, result, operator, time)   
+    values  
+    (#{description},#{name},#{type},#{result},#{operator},#{time})
+  </insert>
+  <select id="getAllOprLogList"  resultMap="BaseResultMapDTO">  
+    select 
+     	a.id, a.name, a.type, a.result, a.operator, date_format(a.time,'%Y-%c-%d %H:%i:%s') time,b.login_name,a.description
+     	from t_operate_log a,sys_user b
+		<where>
+			<include refid="ProjectWhereInclude" />
+		</where>  
+  </select>
+  <select id="getAllOprLogCount"  resultType="java.lang.Integer">  
+	SELECT COUNT(1)
+         FROM t_operate_log a
+         <where>
+			<include refid="ProjectWhereInclude" />
+		</where>  
+  </select>
+  
+ </mapper>

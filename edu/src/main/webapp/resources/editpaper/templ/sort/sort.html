@@ -1,0 +1,31 @@
+<div class="main-wrapper sort-wrapper">
+    <input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+    <!-- 题目 -->
+    <div class="multiple-choice-theme" style="position: relative">
+        <label class="fl">题目</label>
+        <div class="content-edit theme" contenteditable="true" type="sort">{{#data.questionTitle}}</div>
+    </div>
+
+    <!-- 选项 -->
+    <div class="multiple-choice-option">
+        <ul class="option-operating">
+            <label class="fl">排序对象</label>
+            <ul class="option-box">
+                {{each data.sortOptions as value index}}
+                <li class="item-option">
+                    <div class="content-edit" contenteditable="true" type="sort">{{#value.value.questionTitle}}</div>
+                    <span class="option-handle"></span>
+                    <a class="btn-remove" href="javascript:void(null)">&#10005;</a>
+                </li>
+                {{/each}}
+            </ul>
+             <a class="add-option-item" href="javascript:void(null)" style="margin-left: 60px">添加排序对象</a>
+             <label class="sotr-label">排序项数：</label>
+            <input class="option-number" type="text" value="{{#data.maxInputNum}}">
+        </ul>
+        <div class="button-box">
+            <button class="cancle">取消</button>
+            <button class="ok">确定</button>
+        </div>
+    </div>
+</div>

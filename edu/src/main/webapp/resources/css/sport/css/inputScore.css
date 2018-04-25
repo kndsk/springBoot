@@ -1,0 +1,307 @@
+.main-content{
+    min-width: 1240px;
+    margin-bottom: 110px;
+}
+.system-position{
+    width: 100%;
+    min-width: 1240px;
+    height: 50px;
+    background-color: #eef2f8;
+}
+.position-word{
+    width: 1240px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    color: #999999;
+    margin: 0 auto;
+}
+.position-word>img{
+    position: relative;
+    top: 1px;
+}
+.position-word>span{
+    color: #0ea2a5;
+}
+.text-prompt{
+    width: 1238px;
+    padding: 10px 0 10px 20px;
+    margin: 13px auto;
+    font-size: 14px;
+    color: #666666;
+    line-height: 30px;
+    background-color: rgba(216, 237, 247, 0.5);
+    border: 2px solid rgba(189, 232, 242, 0.5);
+    cursor: default;
+}
+.switch-area{
+    position: relative;
+    width: 1240px;
+    height: 57px;
+    margin: 0 auto;
+    border-bottom: 2px solid #e9e9e9;
+}
+.limit-length{
+    width: 1116px;
+    overflow: hidden;
+}
+.area-tab{
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;/*重要代码 避免li标签之间的换行影响样式*/
+    left: 0;
+}
+.area-tab>li{
+    display: inline-block;
+    width: 120px;
+    height: 54px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    color: #666666;
+    line-height: 54px;
+    text-align: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.area-tab>li.active-area,.area-tab>li:hover{
+    color: #0ea2a6;
+    border-bottom: 3px solid #0ea2a6;
+}
+.turn-right{
+    position: absolute;
+    display: none;
+    top: 3px;
+    right: 20px;
+    width: 16px;
+    height: 50px;
+    background:  no-repeat center;
+    background-size: 16px 16px;
+    cursor: pointer;
+}
+.turn-right1{
+    background-image: url("../img/turn-right1.png");
+}
+.turn-right2{
+    background-image: url("../img/turn-right2.png");
+}
+.turn-left{
+    position: absolute;
+    display: none;
+    top: 3px;
+    right: 36px;
+    width: 16px;
+    height: 50px;
+    background: no-repeat center;
+    background-size: 16px 16px;
+    cursor: pointer;
+}
+.turn-left1{
+    background-image: url("../img/turn-left1.png");
+}
+.turn-left2{
+    background-image: url("../img/turn-left2.png");
+}
+.write-num-area{
+    width: 1200px;
+
+    margin: 30px auto 0;
+    font-size: 14px;
+    color: #666666;
+}
+.write-num-area>p>input{
+    width: 170px;
+    height: 28px;
+    color: #666666;
+    padding-left: 5px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    border: solid 1px #d9d9d9;
+}
+.table-inputScore{
+    table-layout: fixed;
+    width: 1200px;
+    text-align: center;
+    box-sizing: border-box;
+    border-top: 2px solid #10b4b7;
+    margin: 26px auto 22px;
+}
+.table-inputScore tr:nth-child(2n+4){
+    background-color: #f6f9fd;
+}
+.table-inputScore th{
+    font-size: 15px;
+    color: #1ab9bc;
+    background-color: #f0f6fd;
+    border:1px solid #9fdfd8 ;
+}
+.table-inputScore td{
+    font-size: 15px;
+    color: #666666;
+    height: 66px;
+    border:1px solid #9fdfd8 ;
+}
+.table-inputScore input{
+    background-color: transparent;
+}
+.p-name{
+    padding: 2px;
+    background-color: transparent;
+    cursor: default;
+    word-wrap: break-word;
+}
+.table-inputScore td input[type='text']{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+    color: #666666;
+    border: none;
+    text-align: center;
+}
+.table-inputScore td input[type='text']:focus{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    outline:3px solid #ffffff ;
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.22);
+}
+.span-checkbox{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+.span-checkbox-all{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.check-yes{
+    background: url("../img/check-yes.png");
+}
+.check-no{
+    background: url("../img/check-no.png");
+}
+.commit-button{
+    width: 1193px;
+    margin: 0 auto;
+}
+.input-btn{
+    width: 82px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    margin-left: 14px;
+}
+.can-click{
+    color: #ffffff;
+    background-color: #1ab9bc;
+    cursor: pointer;
+}
+.un-click{
+    color: #666666;
+    background-color: #dddddd;
+    cursor: not-allowed;
+}
+
+/*弹出层样式*/
+.div-shade{
+    position: fixed;
+    display:none;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 98;
+}
+.pop-tip{
+    position: fixed;
+    z-index: 99;
+    top:50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #ffffff;
+    border: 2px solid #f6f6f6;
+    box-shadow: 5px 5px 8px #999999;
+}
+.pop-tip>img{
+    margin:20px auto 19px;
+}
+.pop-tip>p{
+    font-size: 14px;
+    color: #333333;
+}
+.close_button{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../img/close.png") no-repeat center;
+    cursor: pointer;
+}
+.tip-uncommitted{
+    display: none;
+    width: 285px;
+    height: 132px;
+}
+
+.tip-uncommitted>p{
+    position: absolute;
+    top: 50%;
+    padding: 0 10px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+.tip-submitted,.tip-all-submitted{
+    display: none;
+    width: 220px;
+    height: 138px;
+}
+.tip-all-submitted>p{
+    font-size: 16px;
+}
+/*.tip-selection{*/
+    /*display: none;*/
+    /*width: 249px;*/
+    /*height: 156px;*/
+/*}*/
+/*.tip-selection>p{*/
+    /*margin: 42px auto 38px;*/
+/*}*/
+/*.tip-selection>button{*/
+    /*width: 82px;*/
+    /*height: 36px;*/
+    /*line-height: 36px;*/
+    /*border-radius: 4px;*/
+    /*font-size: 14px;*/
+    /*text-align: center;*/
+/*}*/
+/*.tip-selection>button.sure{*/
+    /*color: #ffffff;*/
+    /*background-color: #1f7fd8;*/
+    /*border:1px solid #1f7fd8;*/
+    /*margin: 0 27px 0 32px;*/
+/*}*/
+/*.tip-selection>button.cancel{*/
+    /*color: #666666;*/
+    /*background-color: #ffffff;*/
+    /*border:1px solid #d9d9d9;*/
+/*}*/
+
+/*在IE10+浏览器中, 使用css即可隐藏input文本输入框右侧的叉号*/
+input::-ms-clear{display: none;}
+input::-ms-reveal{display: none;}

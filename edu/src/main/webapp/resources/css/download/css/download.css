@@ -1,0 +1,60 @@
+body {
+	background: #ffffff;
+}
+.header-cy {
+	height: 66px;
+	background: #00bbac;
+	line-height: 66px;
+}
+.header-cy a.logo-cy {
+	padding-left: 100px;
+	background: url(../images/logo_cy.png) no-repeat 20px 10px;
+	line-height: 66px;
+}
+.download-pc {
+	border-bottom: solid 1px #eeeeee;
+}
+.download-moduel {
+	width: 860px;
+	margin: 0 auto;
+	padding: 55px 70px 40px 70px;
+}
+.download-detail h2 {
+	padding: 45px 0;
+	font-size: 30px;
+	color: #333333;
+	font-weight: bold;
+}
+.download-detail .download-intro {
+	font-size: 14px;
+	color: #333333;
+	line-height: 24px;
+}
+.download-detail a.btn-download {
+	display: block;
+	width: 204px;
+	height: 50px;
+	margin-top: 40px;
+	background: url(../images/icon_download.png) no-repeat 45px 14px #00b9bb;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 18px;
+	line-height: 50px;
+	text-align: center;
+	text-indent: 25px;
+}
+.download-detail a.btn-download:hover {
+	opacity: .9;
+	filter: alpha(opacity=90);
+}
+.download-pc .download-banner {
+	width: 507px;
+	height: 371px;
+	background: url(../images/download1.png);
+}
+.download-android .download-banner {
+	width: 321px;
+	height: 425px;
+	margin-right: 90px;
+	background: url(../images/download2.png);
+}

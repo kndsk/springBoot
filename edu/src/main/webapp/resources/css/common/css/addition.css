@@ -1,0 +1,56 @@
+.dateInput34{
+	height: 34px;
+}
+
+@media  screen and  (max-height: 800px){
+	.content{
+		min-height: 550px
+	}
+}
+@media  screen and  (max-height: 900px){
+	.content{
+		min-height: 650px
+	}
+}
+@media  screen and  (max-height: 1100px){
+	.content{
+		min-height: 750px
+	}
+}
+
+.btn-uploadfile{
+	height:34px;
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    text-indent: 0; 
+}
+.btn-uploadfile input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+	filter: alpha(opacity=0); 
+
+}
+.btn-uploadfile:hover {
+    text-decoration: none;
+}
+.file-btn{
+	height:34px;
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    text-indent: 0;
+}
+#popup_ok{
+	cursor: pointer;
+}
+#popup_cancel{
+	cursor: pointer;
+}

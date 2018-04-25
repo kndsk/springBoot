@@ -1,0 +1,67 @@
+# suppress inspection "UnusedProperty" for whole file
+
+# Spring
+spring.profiles.active=dev
+
+# Server
+server.port=80
+server.session.timeout=6000
+server.context-path=/sport
+
+# Tomcat
+server.tomcat.accesslog.enabled=false
+server.tomcat.protocol-header=x-forwarded-proto
+server.tomcat.remote-ip-header=x-forwarded-for
+server.tomcat.background-processor-delay=30
+
+# MVC
+
+spring.mvc.view.prefix=/WEB-INF/jsp/
+spring.mvc.view.suffix=.jsp
+
+# DB properties:
+# private network
+spring.datasource.url = jdbc:mysql://rds46v22t2s42s3260cd.mysql.rds.aliyuncs.com:3306/sport_release?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+#spring.datasource.url = jdbc:mysql://rr-2zea0o0r3uy2eoa09.mysql.rds.aliyuncs.com:3306/edudas_test?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+spring.datasource.username = sport_release
+spring.datasource.password = eachina@2016
+
+spring.datasource.driver-class-name = com.mysql.jdbc.Driver
+spring.datasource.initialSize=10
+spring.datasource.maxActive=60
+spring.datasource.validationQuery=SELECT 1
+spring.datasource.testOnBorrow=true
+spring.datasource.testOnReturn=true
+spring.datasource.testWhileIdle=true
+
+# Specify the DBMS
+spring.jpa.database = MYSQL
+
+# spring loaded
+spring.thymeleaf.cache=false
+
+# optional configuration
+jsondoc.playgroundEnabled=true
+jsondoc.displayMethodAs=URI
+
+# devtools config
+spring.devtools.restart.enabled=true
+spring.devtools.livereload.enabled=true
+
+logging.path=./logs
+logging.level=DEBUG
+
+multipart.maxRequestSize = 15Mb
+
+work.location=/home
+
+# kafka config
+# private network
+#brokerList=10.172.216.232:9092,10.172.88.207:9092
+#sync=sync
+#projectTopic=bnu2017project-manager-release
+#resultTopic=bnu2017project-manager-release
+# private network
+#zookeeperList=10.172.216.232:2181,10.172.88.207:2181,10.172.88.207:2182
+
+UPLOADING.PROJECT.ZIP.PATH=upLoad/project/zip/

@@ -1,0 +1,333 @@
+/*单选*/
+.view-wrapper-preview,
+.preview-wrapper {
+    position: relative;
+    margin-top: 10px;
+    padding: 20px 50px 0px;
+    width:100%;
+    min-height: 46px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+.preview-wrapper:hover{
+    background: #f7f7f7;
+}
+.preview-wrapper:hover input{
+    background: #f7f7f7;
+}
+.table-box .preview-wrapper,
+.fill-box .preview-wrapper,
+.short-answer-box .preview-wrapper,
+.paragraph-box .preview-wrapper,
+.sacle-box .preview-wrapper,
+.sort-box .preview-wrapper{
+    padding-bottom: 20px;
+}
+.fill-box {
+    line-height: 37px;
+}
+.fill-box tr{
+    height: 48px;
+}
+.view-wrapper-preview:hover {
+    border: 1px solid #E7E7E7;
+}
+.view-wrapper {
+    position: relative;
+    margin-left: 32px;
+    margin-top: 10px;
+    width: 90%;
+    min-height: 126px;
+    border: 1px solid transparent;
+}
+.view-wrapper:hover {
+    border: 1px solid #E7E7E7;
+}
+.title-view p,
+.title-view .code {
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+}
+.title-content {
+    display: inline-block;
+    vertical-align: top;    
+    /*max-width: 90%;*/
+    /*min-width: 90%;*/
+    min-width: 100%;
+}
+.title-content p {
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+.view-option-box {
+    margin-top: 20px;
+    width: 90%;
+    font-size: 0px;
+}
+.radio-normal,
+.checkbox-normal {
+    display: inline-block;
+    background: url(../../img/radio-normol.png) no-repeat;
+    width: 18px;
+    height: 18px;
+}
+.radio-selected {
+    background: url(../../img/radio-selected.png) no-repeat;
+}
+.checkbox-normal {
+    background: url(../../img/checkbox-normal.png) no-repeat;
+}
+.checkbox-selected {
+    background: url(../../img/checkbox-selected.png) no-repeat;
+}
+.option-content {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 13px;
+    width: 80%;
+}
+.option-content,
+.option-content p,
+.option-content th,
+.option-content td {
+    font-size: 14px;
+    color: #333333;
+}
+.item-view-option {
+    display: inline-block;
+    padding-bottom: 10px;
+    width: 100%;
+    min-height: 30px;
+    cursor: pointer;
+}
+
+.view-wrapper .conctrol-box {
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 56px;
+    height: 100%;
+    border-left: 1px solid #E7E7E7;
+}
+.conctrol-box .conctrol {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left:-28px;
+    margin-top:-63px;
+    width: 56px;
+    height: 126px;
+    font-size: 0px;
+}
+.conctrol .view-edit,
+.view-logic,
+.view-delete {
+    display: inline-block;
+    width: 56px;
+    height: 42px;
+    background: url(../../img/btn-edit.png) no-repeat 20px 13px;
+    cursor: pointer;
+}
+.view-edit:hover {
+    background: url(../../img/btn-edit-hover.png) no-repeat 20px 13px;
+    background-color: #00B9BB;
+}
+.view-logic {
+    background: url(../../img/btn-logic.png) no-repeat 20px 13px;
+}
+.view-logic:hover {
+    background: url(../../img/btn-logic-hover.png) no-repeat 20px 13px;
+    background-color: #00B9BB;
+}
+.view-delete {
+    background: url(../../img/btn-delete.png) no-repeat 20px 13px;
+}
+.view-delete:hover {
+    background: url(../../img/btn-delete-hover.png) no-repeat 20px 13px;
+    background-color: #00B9BB;
+}
+/*多选*/
+.theme-type {
+    font-size: 14px;
+    color: #F29527;
+}
+/*表格*/
+.table-style {
+    table-layout: fixed;
+    margin-top: 25px;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+}
+.table-header {
+    background-color: #e0e1e2;
+}
+.table-style tr {
+    height: 48px;
+    border-bottom: 1px solid #F3F3F3; 
+}
+.table-style tr:hover{
+    background: #f2f2f3;
+}
+.table-body {
+    background-color: #fff;
+}
+.table-style td,
+.table-style th {
+    text-align: center;
+    border-right: 1px solid #e5e5e5;
+}
+.table-style th {
+    font-weight:bold;
+}
+.table-style td:first-child,
+.table-style th:first-child{
+    width: 35%;
+    padding-left: 5px;
+}
+.combine-td {
+    border-left: 1px solid #F3F3F3; 
+}
+/*填空*/
+.ht-mk {
+    border: none;
+    border-bottom: 1px solid #999999; 
+    text-align: center;
+}
+.ht-mk.hk{
+    top: 6px;
+    position: relative;
+}
+.range-result{
+   margin: 0 4px;
+}
+/*简答*/
+.ht-mk-t {
+    padding:5px 10px;
+    margin-top: 10px;
+    width: 100%;
+    min-height: 100px;
+    border-color: #ece8e8;
+    border-radius: 3px;
+}
+.ht-mk-t:focus{
+    border-color: #1ab9bb;
+}
+/*量表*/
+.options span {
+    display: inline-block;
+}
+/*排序*/
+.answer-box {
+    margin-top: 18px;
+    font-size: 0px;
+}
+.sort-input {
+    display: inline-block;
+    padding: 5px 0;
+    width: 255px;
+    min-height: 120px;
+    border: 1px solid #D0D0D0;
+}
+
+.sort-options {
+    display: inline-block;    
+    vertical-align: top;
+    margin-left: 25px;
+    width: 227px;
+}
+
+.list {
+    position: relative;
+    margin-bottom: 12px;
+    margin-left: 20px;
+    width: 225px;
+    border: 1px solid #D0D0D0;
+}
+.list p {
+    margin-left: 15px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 30px;
+}
+.title-remark {
+    margin-top: 25px;
+}
+.title-remark require {
+    font-size: 18px;
+    color: #FF1515;
+}
+.title-remark span {
+    vertical-align: top;
+    font-size: 14px;
+    color: #999999;
+}
+.option-handle {
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    left: -16px;
+    background: url(../../img/sort-pic.png) no-repeat;
+    width: 9px;
+    height: 16px;
+    cursor: move;
+}
+.darg-box {
+    background-color: #F8F8F8;
+}
+
+.title-box{
+    padding: 0px 30px;
+    box-sizing: border-box;
+}
+
+/* 答题进度 */
+.answer-progress-box{
+    width: 1000px;
+    margin:0px auto;
+    top: 0px;
+    z-index: 101;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.answer-progress{
+    width: 1000px;
+    height: 60px;
+    margin:0px auto;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    line-height: 40px;
+}
+.answer-progress .progress-title,
+.answer-progress .progress-num,
+.answer-progress .submit-box,
+.answer-progress .progress-detail-box{
+    float: left;
+    margin-right: 10px;
+}
+.answer-progress .progress-title{
+    font-size: 16px;
+}
+.answer-progress .progress-detail-box{
+    position: relative;
+    top: 15px;
+}
+.answer-progress .progress-num{
+    font-size: 22px;
+    font-weight: bold;
+    color: #1ab9bb;
+}
+.answer-progress .submit-box{
+    float: right;
+    margin:0px;
+    width: 100px;
+    height: 30px;
+    padding-bottom: 0px !important;
+}
+.answer-progress .submit-box button {
+    font-size: 16px;
+    line-height: 30px;
+}
+.table-body p{text-align: left;font-size: 13px;}

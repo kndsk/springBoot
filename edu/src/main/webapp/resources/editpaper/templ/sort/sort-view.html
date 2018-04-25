@@ -1,0 +1,32 @@
+<div class="view-wrapper sort-view" index="{{data.index}}">
+    <div>
+        <div class="title-view">
+        <input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+            <div class="title-content">
+                <p>{{#data.questionTitle}}</p>
+            </div>
+            <div class="title-remark">
+                <require>*</require>
+                <span>拖动右侧的选项</span>
+            </div>
+        </div>
+    </div>
+    <div class="answer-box">
+        <div class="sort-input"></div>
+        <div class="sort-options">
+            {{each data.sortOptions as value index}}
+            <li class="list">
+                {{#value.value.questionTitle}}
+                <span class="option-handle"></span>
+            </li>
+            {{/each}}
+        </div>
+    </div>
+    <div class="conctrol-box">
+         <div class="conctrol">
+             <span class="view-edit" data-id="{{#data.id}}"></span>
+             <!-- <span class="view-logic" data-id="{{#data.id}}"></span> -->
+             <span class="view-delete" data-id="{{#data.id}}"></span>
+         </div>
+     </div>
+</div>

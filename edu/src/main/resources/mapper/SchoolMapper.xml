@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ly.edu.mapper.SchoolMapper">
+    <select id="getSysConfigs" resultType="Map">
+        SELECT * FROM sys_config
+    </select>
+    
+    <select id="findUser" resultType="com.ly.edu.domain.School">
+        SELECT * FROM t_school WHERE account = #{account} AND password = #{password}
+    </select>
+    
+    <select id="checkGeneralInfoStatus" resultType="boolean" parameterType="String">
+        SELECT COUNT(*) > 0 FROM t_school t1
+		INNER JOIN t_school_record t2 ON t1.school_id = t2.school_id
+		WHERE t1.school_code = #{school_code}
+		AND t2.contac_info IS NOT NULL
+		AND t2.recorder IS NOT NULL
+		AND t2.reviewer IS NOT NULL
+    </select>
+        
+    <select id="getExamRoomStatus" resultType="boolean" parameterType="Map">
+       	SELECT AVG(IFNULL(`status`, 0)) = 1
+      	FROM v_student
+		WHERE school_code = #{schoolCode} AND exam_room = #{examRoom} - 1
+    </select>
+
+
+    <select id="getProvinceArea" resultType="com.ly.edu.domain.SportStatistics">
+        SELECT DISTINCT t.province_code, t.province_name FROM v_student t
+        <if test="provinceCode != '' and provinceCode != null">
+        WHERE t.province_code = #{provinceCode};
+        </if>
+    </select>
+
+    <select id="getCountryArea" resultType="com.ly.edu.domain.SportStatistics">
+        SELECT DISTINCT t.country_code, t.country_name FROM v_student t WHERE t.province_code = #{provinceCode}
+        <if test="countryCode != '' and countryCode != null">
+        AND t.country_code = #{countryCode};
+        </if>
+    </select>
+
+    <select id="getSchoolArea" resultType="com.ly.edu.domain.SportStatistics">
+        SELECT DISTINCT school_code, school_name FROM v_student WHERE country_code = #{countryCode}
+    </select>
+
+    <select id="getSportStatisticsList" parameterType="Map" resultType="com.ly.edu.dto.SportStatisticsDTO">
+        SELECT DISTINCT province_name, province_code,
+        <if test="provinceCode != ''">
+        country_name, country_code,
+        </if>
+        <if test="countryCode != ''">
+        school_name, school_code,
+        </if>
+        COUNT(*) AS stuTotal
+        FROM v_student
+        WHERE 1 = 1
+        <if test="status == 1">
+            AND status = 1
+        </if>
+        <if test="provinceCode != ''">
+            AND province_code = #{provinceCode}
+        </if>
+        <if test="countryCode != ''">
+            AND country_code = #{countryCode}
+        </if>
+        <if test="schoolCode != ''">
+            AND school_code = #{schoolCode}
+        </if>
+        <choose>
+            <when test="provinceCode == ''">
+                GROUP BY province_code
+            </when>
+            <when test="provinceCode != '' and countryCode == ''">
+                GROUP BY country_code
+            </when>
+            <when test="provinceCode != '' and countryCode != null and schoolCode == ''">
+                GROUP BY school_code
+            </when>
+        </choose>
+    </select>
+
+    <select id="getTotalResult" resultType="com.ly.edu.dto.TotalResultDTO">
+        SELECT COUNT(*) AS totalStudents, COUNT(status = 1) AS finishedStudent,
+        <choose>
+            <when test="provinceCode == ''">
+                (SELECT COUNT(DISTINCT province_code) FROM v_student) AS totalNum
+            </when>
+            <when test="provinceCode != '' and countryCode == ''">
+                (SELECT COUNT(DISTINCT country_code) FROM v_student WHERE province_code = #{provinceCode}) AS totalNum
+            </when>
+            <when test="provinceCode != '' and countryCode != '' and schoolCode == ''">
+                (SELECT COUNT(DISTINCT school_code) FROM v_student WHERE province_code = #{provinceCode} AND country_code = #{countryCode}) AS totalNum
+            </when>
+            <otherwise>
+                1 AS totalNum
+            </otherwise>
+        </choose>
+        FROM v_student
+        WHERE 1 = 1
+        <if test="provinceCode != ''">
+            AND province_code = #{provinceCode}
+        </if>
+        <if test="countryCode != ''">
+            AND country_code = #{countryCode}
+        </if>
+        <if test="schoolCode != ''">
+            AND school_code = #{schoolCode}
+        </if>
+        <choose>
+            <when test="provinceCode == ''">
+                GROUP BY province_code
+            </when>
+            <when test="provinceCode != '' and countryCode == ''">
+                GROUP BY country_code
+            </when>
+            <when test="provinceCode != '' and countryCode != null and schoolCode == ''">
+                GROUP BY school_code
+            </when>
+        </choose>
+    </select>
+
+    <select id="getFinishedStatisticsList" parameterType="Map" resultType="com.ly.edu.dto.SportStatisticsDTO">
+        SELECT DISTINCT province_name, province_code,
+        <if test="provinceCode != ''">
+            country_name, country_code,
+        </if>
+        <if test="countryCode != ''">
+            school_name, school_code,
+        </if>
+        COUNT(*) AS stuTotal
+        FROM v_student
+        WHERE 1 = 1
+        AND status = 1
+        <if test="isEmpty != null">
+            AND is_empty = 1
+        </if>
+        <if test="provinceCode != ''">
+            AND province_code = #{provinceCode}
+        </if>
+        <if test="countryCode != ''">
+            AND country_code = #{countryCode}
+        </if>
+        <if test="schoolCode != ''">
+            AND school_code = #{schoolCode}
+        </if>
+        <choose>
+            <when test="provinceCode == ''">
+                GROUP BY province_code
+            </when>
+            <when test="provinceCode != '' and countryCode == ''">
+                GROUP BY country_code
+            </when>
+            <when test="provinceCode != '' and countryCode != null and schoolCode == ''">
+                GROUP BY school_code
+            </when>
+        </choose>
+    </select>
+    
+    <select id="getMissColStatus" resultType="com.ly.edu.domain.MissColumn">
+        SELECT * FROM t_missColumn WHERE school_code = #{schoolCode} AND exam_room = #{examRoom}
+    </select>
+
+    <insert id="saveMisCol" parameterType="com.ly.edu.domain.MissColumn">
+        INSERT INTO
+            t_missColumn
+            (id, school_code, exam_room, height_miss, weight_miss, power_first_miss, power_second_miss, left_eye_miss,
+            right_eye_miss, breath_first_miss, breath_second_miss, fifty_miss, jump_first_miss, jump_second_miss, jump_third_miss, fifth_miss, isAll_miss)
+        VALUES
+            (#{id}, #{school_code}, #{exam_room}, #{height_miss}, #{weight_miss}, #{power_first_miss}, #{power_second_miss}, #{left_eye_miss},
+            #{right_eye_miss}, #{breath_first_miss}, #{breath_second_miss}, #{fifty_miss}, #{jump_first_miss}, #{jump_second_miss}, #{jump_third_miss},
+            #{fifth_miss}, #{isAll_miss})
+    </insert>
+
+    <update id="updateMisCol" parameterType="com.ly.edu.domain.MissColumn">
+        UPDATE
+            t_missColumn
+        SET
+            height_miss = #{height_miss}, weight_miss = #{weight_miss}, power_first_miss = #{power_first_miss}, power_second_miss = #{power_second_miss},
+            left_eye_miss = #{left_eye_miss}, right_eye_miss = #{right_eye_miss}, breath_first_miss = #{breath_first_miss}, breath_second_miss = #{breath_second_miss},
+            fifty_miss = #{fifty_miss}, jump_first_miss = #{jump_first_miss}, jump_second_miss = #{jump_second_miss}, jump_third_miss = #{jump_third_miss},
+            fifth_miss = #{fifth_miss}, isAll_miss = #{isAll_miss}
+        WHERE
+            school_code = #{school_code} AND exam_room = #{exam_room}
+    </update>
+
+    <select id="checkMissCol" resultType="int">
+        SELECT COUNT(*) FROM t_missColumn WHERE school_code = #{schoolCode} AND exam_room = #{examRoom}
+    </select>
+
+    <select id="getMissCol" resultType="com.ly.edu.domain.MissColumn">
+        SELECT * FROM t_missColumn WHERE school_code = #{schoolCode} AND exam_room = #{examRoom}
+    </select>
+    
+    <select id="getAllAccPwd" resultType="hashMap">
+    	select t.account,t.password from t_school t
+    </select>
+    
+    <select id="getAllSchoolInfo" resultType="com.ly.edu.domain.School">
+    	select * from t_school
+    </select>
+</mapper>

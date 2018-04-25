@@ -1,0 +1,67 @@
+<div class="sacle-box darg-box">
+    <div class="main-wrapper scale-wrapper">
+    <input type="hidden" class="hd-paperitem-id" />
+        <!-- 题目 -->
+        <div class="multiple-choice-theme">
+            <label class="fl">题目</label>
+            <div class="content-edit theme" contenteditable="true" type="table"></div>
+        </div>
+
+        <div class="multiple-choice-option">
+            <!-- 问题组 -->
+            <label class="fl">程度组：</label>
+            <div class="degree-group">
+                <ul class="degree-ul">
+                    <li class="degree-li">
+                        <div class="content-edit left-content" contenteditable="true" type="table"></div>
+                        <span>--</span>
+                        <div class="content-edit right-content" contenteditable="true" type="table"></div>
+                        <a class="btn-remove btn-delete" href="javascript:void(null)">&#10005;</a>
+                    </li>
+                    <li class="degree-li">
+                        <div class="content-edit left-content" contenteditable="true" type="table"></div>
+                        <span>--</span>
+                        <div class="content-edit right-content" contenteditable="true" type="table"></div>
+                        <a class="btn-remove btn-delete" href="javascript:void(null)">&#10005;</a>
+                    </li>
+                </ul>
+                <a class="add-degree" href="javascript:void(null)">添加程度</a>
+            </div>
+            <!-- 范围组 -->
+            <label class="fl">范围组：</label>
+            <div class="fl option-group">
+                <ul class="quenstion-ul">
+                    <li class="quenstion-li option-li">
+                        <div class="content-edit" contenteditable="true" type="table"></div>
+                        <span class="option-handle"></span>
+                        <a class="btn-remove" href="javascript:void(null)">&#10005;</a>
+                    </li>
+                    <li class="quenstion-li option-li">
+                        <div class="content-edit" contenteditable="true" type="table"></div>
+                        <span class="option-handle"></span>
+                        <a class="btn-remove" href="javascript:void(null)">&#10005;</a>
+                    </li>
+                </ul>
+                <a class="add-quenstion" href="javascript:void(null)">添加选项</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 选择出题类型——"单选"、"多选" -->
+        <div class="multiple-choice-radio">
+            <label class="fl">类型</label>
+            <div class="radio-checkBox-option">
+                <span>单选</span>
+                <i class="radio-normal radio-selected" value="1"></i>
+            </div>
+            <div class="radio-checkBox-option">
+                <span>多选</span>
+                <i class="radio-normal" value="2"></i>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="button-box">
+            <button class="cancle">取消</button>
+            <button class="ok">确定</button>
+        </div>
+    </div>
+</div>

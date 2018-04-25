@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ly.edu.mapper.StudentMapper">
+	<select id="getStuInfo" parameterType="com.ly.edu.dto.SportResultDTO" resultType="com.ly.edu.domain.Student">
+        SELECT * FROM t_student stu
+        WHERE
+        stu.exam_room = #{examRoom}
+        <if test="schoolCode != null" >
+            AND stu.school_code = #{schoolCode}
+        </if>
+        <if test="countryCode != null" >
+            AND stu.country_code = #{countryCode}
+        </if>
+        <if test="provinceCode != null" >
+            AND stu.province_code = #{provinceCode}
+        </if>
+        <if test="projectId != null" >
+            AND stu.project_id = #{projectId}
+        </if>
+        ORDER BY stu.barcode
+    </select>
+    
+    <select id="getExamRooms" parameterType="String" resultType="Map">
+      	SELECT CAST(exam_room AS SIGNED) AS exam_room, school_code, AVG(`status`) AS `status`
+      	FROM v_student
+		WHERE school_code = #{schoolCode}
+		GROUP BY exam_room
+        ORDER BY exam_room+0
+    </select>
+        
+    <select id="getStudents" parameterType="Map" resultType="Map">
+      	SELECT *
+      	FROM v_student
+		WHERE school_code = #{schoolCode} AND exam_room =  #{examRoom} 
+        ORDER BY barcode
+    </select>
+
+    <update id="saveStuInfo" parameterType="com.ly.edu.dto.SportResultDTO">
+        <foreach collection="list" item = "item" index = "index" open="" close="" separator=";">
+            UPDATE t_student
+            SET
+            barcode = #{item.barcode}, sex = #{item.sex}, className = #{item.className}, student_name = #{item.stuName}
+            WHERE
+            id = #{item.student_id}
+        </foreach>
+    </update>
+
+    <select id="checkBarCode" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM t_student
+        WHERE barcode IN
+        <foreach collection="list" item = "item" index = "index" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+        AND id NOT IN
+        <foreach collection="idList" item = "item" index = "index" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="getProvinceArea" resultType="java.util.List">
+      SELECT DISTINCT t.province_code, t.province_name FROM t_school t
+    </select>
+
+    <select id="getCountryArea" resultType="java.util.List">
+        SELECT DISTINCT country_code, country_name FROM t_school
+    </select>
+
+    <select id="getSchoolArea" resultType="java.util.List">
+        SELECT DISTINCT school_code, school_name FROM t_school
+    </select>
+
+    <select id="getExcelSportData" resultType="com.ly.edu.dto.SportStatisticsDTO">
+        SELECT DISTINCT province_name, province_code, country_name, country_code, school_name, school_code, COUNT(*) AS stuTotal
+        FROM v_student
+        WHERE 1 = 1
+        <if test="status == 1">
+            AND status = 1
+        </if>
+        <if test="is_empty == 1">
+            AND is_empty = 1
+        </if>
+        <if test="provinceCode != null">
+            AND province_code = #{provinceCode}
+        </if>
+        <if test="countryCode != null">
+            AND country_code = #{countryCode}
+        </if>
+        <if test="schoolCode != null">
+            AND school_code = #{schoolCode}
+        </if>
+        <choose>
+            <when test="provinceCode == null">
+                GROUP BY province_code
+            </when>
+            <when test="provinceCode != null and countryCode == null">
+                GROUP BY country_code
+            </when>
+            <when test="provinceCode != null and countryCode != null and schoolCode == null">
+                GROUP BY school_code
+            </when>
+        </choose>
+    </select>
+    
+    <select id="checkIsALLSubmit" parameterType = "com.ly.edu.dto.SportExamRoom" resultType="com.ly.edu.dto.SportExamRoom">
+        SELECT distinct stu.exam_room, res.status FROM t_student stu
+        LEFT JOIN t_sport_result res ON res.student_id = stu.id
+        WHERE stu.school_code = #{school_code}
+    </select>
+    
+    <select id="checkIsSubmit" parameterType = "com.ly.edu.dto.SportExamRoom" resultType="com.ly.edu.dto.SportExamRoom">
+        SELECT res.status FROM t_student stu
+        LEFT JOIN 
+        t_sport_result res ON res.student_id = stu.id
+        WHERE 
+        stu.school_code = #{school_code} AND stu.exam_room = #{exam_room}
+    </select>
+    
+    <select id="getAllStudentsInfo" resultType="com.ly.edu.domain.Student">
+    	select * from t_student
+    	limit #{pageNum},#{records}
+    </select>
+
+</mapper>

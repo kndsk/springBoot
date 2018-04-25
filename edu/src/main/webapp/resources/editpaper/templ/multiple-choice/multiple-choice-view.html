@@ -1,0 +1,28 @@
+<div class="view-wrapper multiple-view" index="{{data.index}}">
+    <div>
+        <div class="title-view">
+        	<input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+            <div class="title-multiple-content">
+                {{#data.questionTitle}}
+            </div>
+            <span class="theme-type">[多选题]</span>
+        </div>
+        <div class="view-option-box" maxchoice="{{data.maxChoiceNum}}">
+            {{each data.options as value}}
+            <div class="item-view-option" style="width:{{100/data.showColumnNum}}%" rule="{{#value.magicRules}}">
+                <i class="checkbox-normal"></i>
+                <div class="option-content">
+                    {{#value.value}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="conctrol-box">
+         <div class="conctrol">
+             <span class="view-edit" data-id="{{#data.id}}"></span>
+             <span class="view-logic" data-id="{{#data.id}}"></span> 
+             <span class="view-delete" data-id="{{#data.id}}"></span>
+         </div>
+     </div>
+</div>

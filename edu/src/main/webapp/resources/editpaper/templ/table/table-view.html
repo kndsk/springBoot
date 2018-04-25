@@ -1,0 +1,99 @@
+<div class="view-wrapper table-view" index="{{data.index}}">
+    <div>
+        <div class="title-view">
+        <input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+            <div class="title-content">
+                <p>{{#data.questionTitle}}</p>
+            </div>
+        </div>
+    </div>
+    {{if data.complex === false}}
+    <table class="table-style">
+        <thead>
+            <tr class="table-header">
+                <th></th>
+                {{each data.optionArray as value index}}
+                    <th>{{#value.value}}</th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{each data.subTitles[0].titles as val as index}}
+            <tr class="table-body">
+                <td style="text-align: left">{{#val.leftTitle}}</td>
+                <!--判断是否多选-->
+                {{if data.maxChoiceNum >1}}
+                {{each data.optionArray as obj}}
+                <td><i class="checkbox-normal" value="{{#obj.name}}"></td>
+                {{/each}}
+                {{else}}
+                {{each data.optionArray as obj}}
+                <td><i class="radio-normal" value="{{#obj.name}}"></td>
+                {{/each}}
+                {{/if}}
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+        <table class="table-style">
+            <thead>
+                <tr class="table-header">
+                    <th></th>
+                    <th></th>
+                    {{each data.optionArray as value index}}
+                        <th>{{#value.value}}</th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{each data.subTitles as val arry}}
+                    <tr class="table-body">
+                        <td  style="text-align: left" rowspan="{{val.titles.length}}">{{#val.groupTitle}}</td>
+                        <td class="combine-td" style="text-align: left">{{#val.titles[0].leftTitle}}</td>
+                        <!--判断是否多选-->
+                        {{if data.maxChoiceNum >1}}
+                        {{each data.optionArray as obj}}
+                        <td class="combine-td"><i class="checkbox-normal" value="{{#obj.name}}"></i></td>
+                        {{/each}}
+                        {{else}}
+                        {{each data.optionArray as obj}}
+                        <td class="combine-td"><i class="radio-normal" value="{{#obj.name}}"></i></td>
+                        {{/each}}
+                        {{/if}}
+                        <!--{{each data.optionArray as obj}}-->
+                            <!--<td class="combine-td"><i class="radio-normal" value="{{#obj.name}}"></i></td>-->
+                        <!--{{/each}}-->
+                    </tr>
+                    {{each val.titles as item index}}
+                        {{if index != 0}}
+                        <tr class="table-body">
+                            <td class="combine-td" style="text-align: left">{{#item.leftTitle}}</td>
+                            <!--{{each data.optionArray as obj}}-->
+                                <!--<td class="combine-td"><i class="radio-normal" value="{{#obj.name}}"></td>-->
+                            <!--{{/each}}-->
+                            <!--判断是否多选-->
+                            {{if data.maxChoiceNum >1}}
+                            {{each data.optionArray as obj}}
+                            <td class="combine-td"><i class="checkbox-normal" value="{{#obj.name}}"></td>
+                            {{/each}}
+                            {{else}}
+                            {{each data.optionArray as obj}}
+                            <td class="combine-td"><i class="radio-normal" value="{{#obj.name}}"></td>
+                            {{/each}}
+                            {{/if}}
+                        </tr>
+                        {{/if}}
+                    {{/each}}
+                {{/each}}
+            </tbody>
+        </table>
+    {{/if}}
+    <div class="conctrol-box">
+         <div class="conctrol">
+             <span class="view-edit" data-id="{{#data.id}}"></span>
+             <!-- <span class="view-logic" data-id="{{#data.id}}"></span> -->
+             <span class="view-delete" data-id="{{#data.id}}"></span>
+         </div>
+     </div>
+</div>

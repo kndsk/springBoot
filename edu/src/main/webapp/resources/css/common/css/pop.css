@@ -1,0 +1,63 @@
+.pop{
+	font-size: 14px;
+	color: #3a3a3a;
+}
+.pop-head{
+	position: relative;
+	padding: 0 15px;
+	height: 44px;
+	background: #00b9bb;
+	line-height: 44px;
+	color: #fff;
+}
+.pop-close{
+	position: absolute;
+	right: 15px;
+	top: 15px;
+    width: 14px;
+    height: 44px;
+	background: url(../images/pop_ic.png) no-repeat 0 -68px;
+}
+.pop-close:hover{
+	filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	opacity:0.8;
+}
+.pop-main{
+	padding: 20px 40px;
+	background: #fff;
+}
+.support{
+	display: inline-block;
+	width: 20px;
+	height: 14px;
+	background: url(../images/pop_ic.png) no-repeat 0 0;
+}
+.nonsupport{
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	background: url(../images/pop_ic.png) no-repeat 0 -31px;
+}
+.pop-main .manage-table td{
+	padding: 10px 0;
+}
+.pop-set .select_ui{
+	width: 221px;
+}
+.white-bg{
+	background: #fff;
+	padding-bottom: 30px;
+}
+.pop .creat-box .form-inline label{
+	width: 84px;
+}
+.ml90{
+	margin-left: 90px;
+}
+.pop .upload-con{
+	padding-left: 90px;
+}
+.pop .creat-box {
+    width: 636px;
+}

@@ -1,0 +1,27 @@
+<div class="view-wrapper radio-view" index="{{data.index}}">
+    <div>
+        <div class="title-view">
+        	<input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+            <div class="title-content">
+                <p>{{#data.questionTitle}}</p>
+            </div>
+        </div>
+        <div class="view-option-box">
+            {{each data.options as value}}
+            <div class="item-view-option" style="width:{{100/data.showColumnNum}}%">
+                <i class="radio-normal"></i>
+                <div class="option-content">
+                    {{#value.value}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="conctrol-box">
+        <div class="conctrol">
+            <span class="view-edit" data-id="{{#data.id}}"></span>
+            <span class="view-logic" data-id="{{#data.id}}"></span>
+            <span class="view-delete" data-id="{{#data.id}}"></span>
+        </div>
+    </div>
+</div>

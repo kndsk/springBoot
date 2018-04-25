@@ -1,0 +1,220 @@
+<div class="main-wrapper multiple-wrapper">
+    <input type="hidden" class="hd-paperitem-id" value="{{#data.id}}" />
+
+    <!-- 题目 -->
+    <div class="multiple-choice-theme">
+        <label class="fl">题目</label>
+        <div class="content-edit theme" contenteditable="true" type="multiple">{{#data.questionTitle}}</div>
+    </div>
+    {{if data.type === 2}}
+        <!-- 选项 -->
+        <div class="multiple-choice-option">
+            <ul class="option-operating">
+                <ul class="option-box">
+                    {{each data.options as value index}}
+                        <li class="item-option">
+                            <div class="content-edit" contenteditable="true" type="multiple">{{#value.value}}</div>
+                            <span class="option-handle"></span>
+                            <a href="javascript:void(null)">&#10005;</a>
+                        </li>
+                    {{/each}}
+                </ul>
+
+                <li class="add-option">
+                    <p>新建选项</p>
+                </li>
+
+                <div class="fill" style="width: 100%;display: none">
+                    <!-- 题目 -->
+                    <div class="multiple-choice-theme other-option item-option fill-theme">
+                    </div>
+
+                    <!-- 设置 -->
+                    <div class="fill-control" style="width: 100%;">
+                        <a id="addInput" href="javascript:void(null)">添加填空</a>
+                        <div class="constraint-box">
+                            <label class="constraint-font">约束：</label>
+                            <select id="blankNumber"><option value="-1">请选择</option></select>
+                            <label>输入限制：</label>
+                            <select id="limitType">
+                                <option value="-1">请选择</option>
+                                <option value="1">字数</option>
+                                <option value="2">数字</option>
+                                <option value="3">小数</option>
+                                <option value="4">整数</option>
+                            </select>
+                            <div id="word" class="limit-box hidden">
+                                <!-- <label class="item-font">最小字数：</label>
+                                <input class="min-value" type="number"  name="" value=""> -->
+
+                                <label class="item-font">最大字数：</label>
+                                <input class="max-value" type="number" name="" value="">
+                            </div>
+                            <div id="decimal" class="limit-box hidden" style="display: none;">
+                                <label class="item-font">最小值：</label>
+                                <input class="min-value" type="number" name="" value="">
+
+                                <label class="item-font">最大值：</label>
+                                <input class="max-value" type="number" name="" value="">
+
+                                <label class="item-font">小数位数：</label>
+                                <input class="decimal-num" type="number" name="" value="">
+                            </div>
+                            <div id="integer" class="limit-box hidden" style="display: none;">
+                                <label class="item-font">最小值：</label>
+                                <input class="min-value" type="number" name="" value="">
+
+                                <label class="item-font">最大值：</label>
+                                <input class="max-value" type="number" name="" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+
+            <div class="option-control">
+                <div style="margin: 0 0 20px 20px;">
+                    <a class="add-other" other-show="false" href="javascript:void(null)">添加其它项</a>
+                    <a class="add-magic-controller" style="margin-left: 20px;" href="javascript:void(null)">添加互斥规则</a>
+                </div>
+                <!--<a class="add-other" other-show="false" href="javascript:void(null)">添加其它项</a>-->
+                <label>每行显示列数：</label>
+                <select class="column-num">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+
+                <label>最多选择：</label>
+                <input class="option-number" type="text" value="{{data.maxChoiceNum}}">
+                <label class="item-font">项</label>
+                <div class="check-box" style="margin-left: 20px;margin-bottom: 20px;margin-top: 20px;">
+                    {{if data.assistFlag === false}}
+                    <i class="checkbox-normal" style="background-size: 14px;vertical-align: middle"></i>
+                    {{else}}
+                    <i class="checkbox-normal checkbox-selected" style="background-size: 14px;vertical-align: middle"></i>
+                    {{/if}}
+                    <span>是否为辅助题</span>
+                </div>
+            </div>
+            <div class="magic-rules-box">
+                {{each data.magicRules as value index}}
+                <p class="magic-rule-item">
+                    <label>互斥规则：</label>条件&nbsp;<select class="magic-rule first-rule" data-rule={{#value.primary}}>
+
+                    </select>&nbsp;&nbsp;&nbsp;&nbsp;对立条件&nbsp;<select class="magic-rule second-rule" data-rule={{#value.secondary}}>
+
+                    </select><a href="javascript:void(null)" style="float: right; color: #999CB4;">✕</a>
+                </p>
+                {{/each}}
+            </div>
+            <div class="button-box">
+                <button class="cancle">取消</button>
+                <button class="ok">确定</button>
+            </div>
+        </div>
+    {{else}}
+        <!-- 选项 -->
+        <div class="multiple-choice-option">
+            <ul class="option-operating">
+                <ul class="option-box">
+                    {{each data.options as value index}}
+                        {{if index != data.options.length-1}}
+                            <li class="item-option">
+                                <div class="content-edit" contenteditable="true" type="multiple">{{#value.value}}</div>
+                                <a href="javascript:void(null)">&#10005;</a>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+
+                <li class="add-option">
+                    <p>新建选项</p>
+                </li>
+
+                <div class="fill" style="width: 100%;">
+                    <!-- 题目 -->
+                    <div class="multiple-choice-theme other-option item-option fill-theme">
+                    </div>
+
+                    <!-- 设置 -->
+                    <div class="fill-control" style="width: 100%;">
+                        <a id="addInput" href="javascript:void(null)">添加填空</a>
+                        <div class="constraint-box">
+                            <label class="constraint-font">约束：</label>
+                            <select id="blankNumber"><option value="-1">请选择</option></select>
+                            <label>输入限制：</label>
+                            <select id="limitType">
+                                <option value="-1">请选择</option>
+                                <option value="1">字数</option>
+                                <option value="2">数字</option>
+                                <option value="3">小数</option>
+                                <option value="4">整数</option>
+                            </select>
+                            <div id="word" class="limit-box hide">
+                                <label class="item-font">最小字数：</label>
+                                <input class="min-value" type="number"  name="" value="">
+
+                                <label class="item-font">最大字数：</label>
+                                <input class="max-value" type="number" name="" value="">
+                            </div>
+                            <div id="decimal" class="limit-box hide" style="display: none;">
+                                <label class="item-font">最小值：</label>
+                                <input class="min-value" type="text" name="" value="">
+
+                                <label class="item-font">最大值：</label>
+                                <input class="max-value" type="text" name="" value="">
+
+                                <label class="item-font">小数位数：</label>
+                                <input class="decimal-num" type="number" name="" value="">
+                            </div>
+                            <div id="integer" class="limit-box hide" style="display: none;">
+                                <label class="item-font">最小值：</label>
+                                <input class="min-value" type="number" name="" value="">
+
+                                <label class="item-font">最大值：</label>
+                                <input class="max-value" type="number" name="" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+
+            <div class="option-control">
+                <div style="margin: 0 0 20px 20px;">
+                    <a class="add-other" other-show="false" href="javascript:void(null)">添加其它项</a>
+                    <a class="add-magic-controller" style="margin-left: 20px;" href="javascript:void(null)">添加互斥规则</a>
+                </div>
+                <!--<a class="add-other" other-show="false" href="javascript:void(null)" style="display:none">添加其它项</a>-->
+                <label>每行显示列数：</label>
+                <select class="column-num">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+
+                <label>最多选择：</label>
+                <input class="option-number" type="text" value="{{data.maxChoiceNum}}">
+                <label class="item-font">项</label>
+            </div>
+            <div class="magic-rules-box">
+                {{each data.magicRules as value index}}
+                    <p class="magic-rule-item">
+                        <label>互斥规则：</label>条件&nbsp;<select class="magic-rule first-rule" data-rule={{#value.primary}}>
+
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;对立条件&nbsp;<select class="magic-rule second-rule" data-rule={{#value.secondary}}>
+
+                        </select><a href="javascript:void(null)" style="float: right; color: #999CB4;">✕</a>
+                    </p>
+                {{/each}}
+            </div>
+
+            <div class="button-box">
+                <button class="cancle">取消</button>
+                <button class="ok">确定</button>
+            </div>
+        </div>
+    {{/if}}
+</div>

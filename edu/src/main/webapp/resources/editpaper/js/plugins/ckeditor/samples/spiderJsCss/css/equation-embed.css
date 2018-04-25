@@ -1,0 +1,246 @@
+/* The default text style used on every page 
+#hover { padding:2px; position:absolute; display:none; z-index:50; background-color:#FFFFCC; border:1px solid #999999; }
+
+#EqnEditor { margin:0 auto; text-align:center; }
+#EqnEditor .top { margin:0 auto; padding:2px 0; }
+#EqnEditor .bottom { border-bottom:1px solid #9a9a9a; }
+#EqnEditor .toolbar_wrapper { margin:0 auto; }
+#EqnEditor .toolbar {	position:relative; padding-top:2px; }
+#EqnEditor .toolbar_space { height:38px; margin:0 auto; }
+#EqnEditor .panel { display:inline-block; padding:0px 3px; overflow:hidden; vertical-align:top; }
+#toolbar_example { clear:left; }
+
+#intro { position:absolute; left:30px; color:#FF6600; font-size:16px; }
+
+.panel select { border:1px solid #8FB6BD; font-size:12px; }
+*/
+/* ------- Button formating ------ 
+	
+.bluebutton, .lightbluebutton, .greybutton {
+  border-style: solid;
+	border-width:1px;
+  border-top-color: #D9DFEA;
+  border-left-color: #D9DFEA;
+  border-bottom-color: #0e1f5b;
+  border-right-color: #0e1f5b;
+  color: #FFFFFF;
+  font-size: 11px;
+  text-align: center; 
+	cursor:pointer;
+
+	padding:1px 4px;
+	margin:0;
+}
+
+.lightbluebutton { background-color:#4068AE; }
+.bluebutton { background-color:#003794; }
+.greybutton { background-color:#888888; }*/
+
+
+/*texCode keyBtn panel--wqyan*/
+/* version 001
+.equation_sel {
+    width: 721px;
+    height: 321px;
+    background: #ffffff url("./images/editorIcon.png") no-repeat 0 0;
+    overflow: hidden;
+}
+
+.equation_sel table  {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.equation_sel table tr td {
+    width: 59px;
+    height: 39px;
+    border: 1px solid #dedede;
+    cursor: pointer;
+}
+
+.equation_sel table tr td.null{
+    cursor: default;
+}
+.equation_sel table tr.last_tr td{
+    height: 79px;
+}
+*/
+/* version 002
+.equation_editor{
+    padding: 10px 10px 30px;
+}
+.equation_sel{
+    width: 500px;
+    min-height: 50px;
+}
+.editor1{
+    height: 21px;
+    background: url("./images/editorIcon.png") no-repeat 0 0;
+}
+.editor1 table td{
+    width: 25px;
+    height: 21px;
+    cursor: pointer;
+}
+.editor1 table td.width1{
+    width: 34px;
+}
+.editor1 table td.width2{
+    width: 50px;
+}
+.editor1 table td.width3{
+    width: 50px;
+}
+.editor2 a{
+    display: inline-block;
+    float: left;
+    width: 25px;
+    line-height: 21px;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+    overflow: hidden;
+}
+*/
+
+.equation_editor{
+    padding: 10px 10px 30px;
+}
+.equation_sel{
+	padding-left: 17px;
+    /*width: 550px;*/
+    /*min-height: 350px;*/
+}
+.pl75{
+    padding-left: 75px;
+}
+.editor2 a{
+    display: inline-block;
+    float: left;
+    width: 25px;
+    line-height: 21px;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+    overflow: hidden;
+}
+.editor2 a:hover{
+    color: #ffffff;
+    background-color: #1ab774;
+}
+.editor1 table{
+	margin: 0 !important;
+}
+.editor1 table td i{
+    display: inline-block;
+    width: 29px;
+    height: 21px;
+    background: url("./images/editorIcon.png") no-repeat 0 0;
+}
+.editor1 table td i.formula1{
+    background-position: 0 0;
+}
+.editor1 table td i.formula2{
+    background-position: -29px 0;
+}
+.editor1 table td i.formula3{
+    background-position: -58px 0;
+}
+.editor1 table td i.formula4{
+    background-position: -87px 0;
+}
+.editor1 table td i.formula5{
+    background-position: -116px 0;
+}
+.editor1 table td i.formula6{
+    background-position: -145px 0;
+}
+.editor1 table td i.formula7{
+    background-position: -174px 0;
+}
+.editor1 table td i.formula8{
+    background-position: -203px 0;
+}
+.editor1 table td i.formula9{
+    background-position: -232px 0;
+}
+.editor1 table td i.formula10{
+    background-position: -261px 0;
+}
+.editor1 table td i.formula11{
+    background-position: -290px 0;
+}
+.editor1 table td i.formula12{
+    width: 42px;
+    background-position: -319px 0;
+}
+.editor1 table td i.formula13{
+    width: 57px;
+    background-position: -358px 0;
+}
+.editor1 table td i.formula14{
+    width: 57px;
+    background-position: -413px 0;
+}
+.editor1 table td i:hover{
+    background-color: #1ab774;
+    cursor: pointer;
+}
+.editor1 table td i.formula1:hover{
+    background-position: 0 -21px;
+}
+.editor1 table td i.formula2:hover{
+    background-position: -29px -21px;
+}
+.editor1 table td i.formula3:hover{
+    background-position: -58px -21px;
+}
+.editor1 table td i.formula4:hover{
+    background-position: -87px -21px;
+}
+.editor1 table td i.formula5:hover{
+    background-position: -116px -21px;
+}
+.editor1 table td i.formula6:hover{
+    background-position: -145px -21px;
+}
+.editor1 table td i.formula7:hover{
+    background-position: -174px -21px;
+}
+.editor1 table td i.formula8:hover{
+    background-position: -203px -21px;
+}
+.editor1 table td i.formula9:hover{
+    background-position: -232px -21px;
+}
+.editor1 table td i.formula10:hover{
+    background-position: -261px -21px;
+}
+.editor1 table td i.formula11:hover{
+    background-position: -290px -21px;
+}
+.editor1 table td i.formula12:hover{
+    background-position: -319px -21px;
+}
+.editor1 table td i.formula13:hover{
+    background-position: -358px -21px;
+}
+.editor1 table td i.formula14:hover{
+    background-position: -413px -21px;
+}
+/*为了latex服务器图片居中
+td.cke_dialog_ui_vbox_child {
+    text-align: center;
+    height: 50px;
+}
+*/
+.cke_dialog_footer {
+    text-align: center!important;
+}
+
+.cke_dialog_footer table{
+	width:150px!important;
+}
+.cke_dialog_footer_buttons td{
+	 text-align: center!important;
+}

@@ -1,0 +1,88 @@
+<div class="dialog-box">
+  <div class="dialog-wrapper">
+    <input id="code" type="hidden" value="{{data.paperItemDTO.id}}">
+    <div class="left-panple">
+      <label>当用户选择本项:</label>
+      <ul>
+        {{if data.jumpLogic != null}}
+          {{each data.paperItemDTO.options as value index}}
+            {{if index === 0}}
+              <li class="sigle-option selected" name="{{value.name}}">{{value.name}}.{{#value.value}}</li>
+            {{else}}
+              <li class="sigle-option" name="{{value.name}}">{{value.name}}.{{#value.value}}</li>
+            {{/if}}
+          {{/each}}
+        {{else}}
+          {{each data.paperItemDTO.options as value}}
+          <li class="sigle-option" name="{{value.name}}">{{value.name}}.{{#value.value}}</li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{each data.paperItemDTO.options as val indexDto}}
+    {{if indexDto === 0}}
+    <div class="right-panple show">
+      <label>可跳转至:</label>
+      <ul class="fl main-ul">
+        {{if data.jumpLogic != null}}
+          {{each data.paperItemDTOList as item index}}
+            {{each data.jumpLogic.sts as logic index}}
+              {{if item.id === logic.targetQuestionNumber && indexDto === index}}
+                <li class="sigle-theme selected">
+                  <span targetId="{{#item.id}}">{{item.code}}.</span>
+                  {{#item.questionTitle}}
+                </li>
+              {{/if}}
+            {{/each}}
+              <li class="sigle-theme">
+                <span targetId="{{#item.id}}">{{item.code}}.</span>
+                {{#item.questionTitle}}
+              </li>
+          {{/each}}
+        {{else}}
+          {{each data.paperItemDTOList as item index}}
+            <li class="sigle-theme">
+              <span targetId="{{#item.id}}">{{item.code}}.</span>
+              {{#item.questionTitle}}
+            </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{else}}
+    <div class="right-panple">
+      <label>可跳转至:</label>
+      <ul class="fl main-ul">
+        {{if data.jumpLogic != null}}
+          {{each data.paperItemDTOList as item index}}
+            {{each data.jumpLogic.sts as logic index}}
+              {{if item.id === logic.targetQuestionNumber && indexDto === index}}
+                <li class="sigle-theme selected">
+                  <span targetId="{{#item.id}}">{{item.code}}.</span>
+                  {{#item.questionTitle}}
+                </li>
+              {{/if}}
+            {{/each}}
+            <li class="sigle-theme">
+              <span targetId="{{#item.id}}">{{item.code}}.</span>
+              {{#item.questionTitle}}
+            </li>
+          {{/each}}
+        {{else}}
+          {{each data.paperItemDTOList as item index}}
+            <li class="sigle-theme">
+              <span targetId="{{#item.id}}">{{item.code}}.</span>
+              {{#item.questionTitle}}
+            </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{/if}}
+    {{/each}}
+  </div>
+  <div class="dialog-button clearfix">
+    <button class="fl dialog-cancle">取消</button>
+    <button class="fl dialog-ok" data-id="{{data.paperItemDTO.paperId}}">确定</button>
+  </div>
+</div>

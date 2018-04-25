@@ -1,0 +1,44 @@
+.tableCom-0{
+    float:left;
+    margin-right: 15px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/tableCompelete.png") no-repeat 0px center;
+}
+.tableCom-1{
+    float:left;
+    margin-right: 15px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/tableCompelete.png") no-repeat -30px center;
+}
+.tableCom-2{
+    float:left;
+    margin-right: 15px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../images/tableCompelete.png") no-repeat -60px center;
+}
+table tr td{
+    text-align: center;
+}
+table tr:nth-child(2n+1){
+    background:rgb(246,246,246);
+}
+.inlineBlock{
+    display: inline-block;
+}
+.floatLeft{
+    float: left;
+}
+.total-text-box{
+    margin-top: 20px;
+}
+.text-org{
+    color: orange;
+    display: inline-block;
+    padding: 0 3px;
+}

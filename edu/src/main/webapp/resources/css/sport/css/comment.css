@@ -1,0 +1,66 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+.header{
+    width: 100%;
+    min-width: 1240px;
+    height: 78px;
+    line-height: 78px;
+    background-color: #1ab9bc;
+}
+.header-top{
+    width: 1240px;
+    margin: 0 auto;
+}
+.header-top>img{
+    position: relative;
+    top: 10px;
+}
+.header a{
+    font-size: 14px;
+    color: #ffffff;
+    margin-right: 14px;
+}
+.quit{
+    background: url("../img/exit-icon.png") no-repeat left center;
+    padding-left: 22px;
+}
+.help{
+    background: url("../img/help-icon.png") no-repeat left center;
+    padding-left: 22px;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    background: #0ea2a6;
+    height: 64px;
+    width: 100%;
+    min-width: 1240px;
+    text-align: center;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/*页码*/
+#projectlist_page{
+    width: 1200px;
+    margin: 30px auto;
+    text-align: right;
+}
+#projectlist_page>a{
+    background: #FFF;
+    border: 1px solid #dcdcdc;
+    color: #717171;
+    font-size: 12px;
+    cursor: pointer;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+}
+#projectlist_page>a:hover, #projectlist_page>a.active {
+    border: 1px solid #9fdfd8;
+    color: #9fdfd8;
+}
