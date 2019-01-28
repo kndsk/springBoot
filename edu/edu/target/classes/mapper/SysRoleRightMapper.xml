@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ly.edu.mapper.SysRoleRightMapper" >
-  <resultMap id="BaseResultMap" type="com.ly.edu.domain.SysRoleRight" >
-    <id column="role_id" property="roleId" jdbcType="INTEGER" />
-    <id column="right_id" property="rightId" jdbcType="INTEGER" />
-  </resultMap>
-</mapper>
